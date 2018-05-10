@@ -11,4 +11,5 @@
 ##### 二、功能实现
 * 1.实现宿主到插件activity的跳转及Toast显示；
 * 2.实现插件activityA到插件activityB的跳转；
+* 3.实现插件Service启动；
 

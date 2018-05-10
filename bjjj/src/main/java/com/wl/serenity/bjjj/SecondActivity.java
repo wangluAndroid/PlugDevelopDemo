@@ -12,8 +12,6 @@ public class SecondActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //that 和 this 都可以
-//        TextView tv = new TextView(this);
         TextView tv = new TextView(that);
         tv.setText("---------This is SecondActivity------");
         setContentView(tv);

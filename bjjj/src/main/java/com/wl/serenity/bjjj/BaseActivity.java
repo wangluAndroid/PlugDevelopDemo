@@ -1,6 +1,7 @@
 package com.wl.serenity.bjjj;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
@@ -55,6 +56,11 @@ public class BaseActivity extends AppCompatActivity implements ActivityInterface
     @Override
     public void startActivity(Intent intent) {
         that.startActivity(intent);
+    }
+
+    @Override
+    public ComponentName startService(Intent service) {
+        return that.startService(service);
     }
 
     @Override

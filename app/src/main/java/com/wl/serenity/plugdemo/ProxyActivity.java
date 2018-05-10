@@ -75,11 +75,17 @@ public class ProxyActivity extends AppCompatActivity  {
 
     @Override
     public void startActivity(Intent intent) {
-//        super.startActivity(intent);
         String className = intent.getComponent().getClassName();
         Intent intent1 = new Intent(this, ProxyActivity.class);
         intent1.putExtra("className", className);
         super.startActivity(intent1);
+    }
+
+    @Override
+    public ComponentName startService(Intent service) {
+        Intent intent = new Intent(this, ProxyService.class);
+        intent.putExtra("serviceName", service.getComponent().getClassName());
+        return super.startService(intent);
     }
 
     /**

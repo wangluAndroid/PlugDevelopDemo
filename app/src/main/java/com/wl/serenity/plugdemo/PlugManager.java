@@ -24,7 +24,7 @@ public class PlugManager {
     protected PackageInfo packageInfo;
 
     private Resources resources ;
-    private ClassLoader dexClassLoader ;
+    private DexClassLoader dexClassLoader ;
 
     private PlugManager(){}
 
@@ -47,7 +47,12 @@ public class PlugManager {
 
         Log.e("PlugManager", "loadPath: "+filePath);
 
-        //获取插件中的activity----进行跳转用的
+        /**
+         * 获取插件中的所有在AndroidManifest中注册过的activity；
+         * packageInfo.activites[0]得到就是Action为LaunchActivity的ActivityInfo--插件中的MainActivity,
+         *          可以从ActivityInfo中拿到全类名；
+         *
+         */
         PackageManager packageManager = context.getPackageManager();
         packageInfo = packageManager.getPackageArchiveInfo(filePath, packageManager.GET_ACTIVITIES);
 //        ActivityInfo[] activities = packageInfo.activities;
@@ -108,7 +113,7 @@ public class PlugManager {
         return resources;
     }
 
-    public ClassLoader getDexClassLoader() {
+    public DexClassLoader getDexClassLoader() {
         return dexClassLoader;
     }
 }
