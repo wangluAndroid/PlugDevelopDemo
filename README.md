@@ -13,3 +13,12 @@
 * 2.实现插件activityA到插件activityB的跳转；
 * 3.实现插件Service启动；
 
+##### 三、实现原理
+* 3.1 宿主activity跳转到插件activity的原理
+> 宿主activity跳转到插件activity中，表面上是这样的；其实不是这样的，内部是宿主activity跳转到宿主中的proxyActivity，proxyActivity加载插件中的activity中的生命周期方法（用在自己的生命周期中调用插件中的activity中的生命周期）；
+>
+> 那为什么要用宿主的activity启动宿主的proxyActivity，而不是直接启动插件中的activity？
+>
+> 原因是：插件中的activity没有被安装（插件apk不是被手机正常安装，只是拷贝到data/data/包名/xxx），没有上下文Contenxt对象，所以插件中的activity只是一个'寄生'，必须依附于proxyActivity，通过proxyActivity的生命周期调用插件activity中的生命周期，
+>           看似是插件自己的页面被加载，其实都是通过proxyActiviy来加载的；说白了就是：将proxyActivity对象的上下文Context传递到插件Activity中，调用proxyActiviy的上下文Context对象的方法，进行加载；
+
