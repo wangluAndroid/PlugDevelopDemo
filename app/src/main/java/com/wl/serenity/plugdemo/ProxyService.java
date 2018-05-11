@@ -95,7 +95,7 @@ public class ProxyService extends Service {
         if (oneService == null) {
             init(intent);
         }
-        return Service.START_STICKY;
+        return oneService.onStartCommand(intent,flags,startId);
     }
 
     @Override

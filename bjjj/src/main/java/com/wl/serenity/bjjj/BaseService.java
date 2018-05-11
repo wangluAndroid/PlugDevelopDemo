@@ -50,7 +50,11 @@ public class BaseService extends Service implements ServiceInterface{
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        return that.onStartCommand(intent, flags, startId);
+        /**
+         * 在这里不调用that.onStartCommand的原因是因为：在宿主ProxyService中的onStartCommand已经调用oneService.onStartCommand(intent,flags,startId)
+         *              如果这里再调用，会造成循环调用，称为死循环
+         */
+        return Service.START_STICKY;
     }
 
     @Override
