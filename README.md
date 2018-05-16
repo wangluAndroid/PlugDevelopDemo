@@ -12,6 +12,7 @@
 * 1.实现宿主到插件activity的跳转及Toast显示；
 * 2.实现插件activityA到插件activityB的跳转；
 * 3.实现插件Service启动；
+* 4.实现插件BroadcastReceiver动态注册，并在插件中发送广播，然后插件中进行接收广播；
 
 ##### 三、实现原理
 * 3.1 宿主activity跳转到插件activity的原理

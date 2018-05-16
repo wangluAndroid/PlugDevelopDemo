@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * 加载插件
      * 将外部储存卡里面的apk copy 到内部储存
+     * 拷贝到内部的原因？
+     *      ----因为ClassLoader只能加载data/data/包名/xxx下的dex文件，这是系统决定的；
      */
     private void loadPlug() {
         File filesDir = this.getDir("plugin", Context.MODE_PRIVATE);

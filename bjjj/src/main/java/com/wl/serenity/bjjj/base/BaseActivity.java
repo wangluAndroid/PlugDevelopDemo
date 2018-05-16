@@ -1,8 +1,10 @@
-package com.wl.serenity.bjjj;
+package com.wl.serenity.bjjj.base;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -52,6 +54,15 @@ public class BaseActivity extends AppCompatActivity implements ActivityInterface
         return that.findViewById(id);
     }
 
+    @Override
+    public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
+        return that.registerReceiver(receiver, filter);
+    }
+
+    @Override
+    public void sendBroadcast(Intent intent) {
+        that.sendBroadcast(intent);
+    }
 
     @Override
     public void startActivity(Intent intent) {

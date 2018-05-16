@@ -1,7 +1,9 @@
 package com.wl.serenity.plugdemo;
 
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -86,6 +88,20 @@ public class ProxyActivity extends AppCompatActivity  {
         Intent intent = new Intent(this, ProxyService.class);
         intent.putExtra("serviceName", service.getComponent().getClassName());
         return super.startService(intent);
+    }
+
+    @Override
+    public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
+//        filter.countActions();//获取filter中所有的Action总数，可以for循环取得所有的filter.getAction(i);
+        return super.registerReceiver(new ProxyReceiver(receiver.getClass().getName(),this), filter);
+    }
+
+    @Override
+    public void sendBroadcast(Intent intent) {
+
+        Intent ii = new Intent();
+        ii.setAction(intent.getAction());
+        super.sendBroadcast(intent);
     }
 
     /**

@@ -2,6 +2,8 @@ package com.wl.serenity.bjjj;
 
 import android.util.Log;
 
+import com.wl.serenity.bjjj.base.BaseService;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;

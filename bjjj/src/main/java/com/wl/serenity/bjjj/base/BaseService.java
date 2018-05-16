@@ -1,4 +1,4 @@
-package com.wl.serenity.bjjj;
+package com.wl.serenity.bjjj.base;
 
 import android.app.Service;
 import android.content.Intent;
@@ -14,7 +14,7 @@ import com.wl.serenity.plugstandard.ServiceInterface;
 
 public class BaseService extends Service implements ServiceInterface{
 
-    private Service that;
+    protected Service that;
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
