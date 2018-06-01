@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void loadPlug() {
         File filesDir = this.getDir("plugin", Context.MODE_PRIVATE);
         String name = "plugin.apk";
-        ///data/data/com.wl.serenity.plugdemo/app_plugin/plugin.apk
+        //    /data/data/com.wl.serenity.plugdemo/app_plugin/plugin.apk
         String filePath = new File(filesDir,name).getAbsolutePath();
         File file = new File(filePath);
         if (file.exists()) {

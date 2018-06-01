@@ -66,9 +66,12 @@ public class PlugManager {
         dexClassLoader = new DexClassLoader(filePath, dexOutFile.getAbsolutePath(), null, context.getClassLoader());
 
         /**
-         *  DexClassLoader 优化缓存不能使用外部储存，否则报出下面的错误
+         *  DexClassLoader 优化缓存目录不能使用外部储存，否则报出下面的错误
          *  java.lang.IllegalArgumentException: Optimized data directory /storage/emulated/0/dex is not owned by the current user.
          *  Shared storage cannot protect your application from code injection attacks.
+         *
+         *  DexClassLoader可以加载任意路径下的apk-----> dex  --->.class
+         *
          */
 //        File ff = new File(Environment.getExternalStorageDirectory(), "dex");
 //        if(!ff.exists()){
@@ -76,6 +79,9 @@ public class PlugManager {
 //        }
 //        dexClassLoader = new DexClassLoader(filePath, ff.getAbsolutePath(), null, context.getClassLoader());
 
+        /**
+         *  PathClassloader 只能加载系统注入的、已经安装的app
+         */
 //        //要么使用PathClassLoader
 //        dexClassLoader = new PathClassLoader(filePath,context.getClassLoader());
 
